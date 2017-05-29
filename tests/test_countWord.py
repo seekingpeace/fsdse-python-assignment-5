@@ -6,15 +6,15 @@ class TestCountWord(TestCase):
     def test_countWord(self):
         try:
             from count_word import countWord
-            result = countWord('../files/testfile.txt', 'dummy')
+            result = countWord('./files/testfile.txt', 'dummy')
             self.assertEqual(2, result)
 
-            result1 = countWord('../files/testfile.txt', 'Lorem')
+            result1 = countWord('./files/testfile.txt', 'Lorem')
             self.assertEqual(2, result1)
             self.assertTrue(succeed("countWord"))
         except ImportError:
             self.assertFalse(no_function_found("countWord"))
         except AssertionError:
             self.assertFalse(incorrect_output())
-        except FileExistsError:
+        except:
             self.assertFalse(no_function_found("file not found"))
